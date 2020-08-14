@@ -2,7 +2,7 @@ const neeoapi = require("neeo-sdk");
 const fs = require('fs');
 //DISCOVERING BRAIN
 function BrainManager(neeoConfigFile, deviceTable, driverName) {
-  this.neeConfigFile = neeoConfigFile;
+  this.neeoConfigFile = neeoConfigFile;
   this.deviceTable = deviceTable;
   this.driverName = driverName;
   this.fileDriverConfig;
@@ -84,7 +84,7 @@ function BrainManager(neeoConfigFile, deviceTable, driverName) {
         neeoapi.startServer(neeoSettings)
           .then(() => {
             if (self.fileDriverConfig != self.driverConfig)
-              fs.writeFile(self.neeConfigFile, JSON.stringify(self.driverConfig), err => {
+              fs.writeFile(self.neeoConfigFile, JSON.stringify(self.driverConfig), err => {
                 if (err) {
                   console.log('Error writing file, discovery will happen again next time', err);
                 }
